@@ -14,7 +14,12 @@ function addLevelDBData(key,value){
         console.log('Block ' + key + ' submission failed', err);
         reject(err);
       } 
-      resolve(value);
+      getLevelDBData(key).then((blockData) => {
+          resolve(JSON.parse(blockData));
+        }).catch((err) => {
+          console.log('Block not found!', err);
+          reject(err);
+        });
     });
   });
 }
