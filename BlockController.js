@@ -15,7 +15,6 @@ class BlockController {
     constructor(app) {
         this.app = app;
         this.blockChain = new BlockchainClass.Blockchain();
-        //this.initializeMockData();
         this.getBlockByIndex();
         this.postNewBlock();
     }
@@ -57,21 +56,6 @@ class BlockController {
         });
     }
 
-    /**
-     * Help method to inizialized Mock dataset, adds 10 test blocks to the blocks array
-     */
-    initializeMockData() {
-        if(this.blockChain.getBlockHeight() === 0){
-            for (let index = 0; index < 10; index++) {
-                let blockTest = new BlockClass.Block("Test Block - " + (i + 1));
-                this.blockChain.addBlock(blockTest).then((result) => {
-                    console.log(result);
-                }).catch((err) => {
-                  console.log('No errors detected' + err);
-                });
-            }
-        }
-    }
 
 }
 

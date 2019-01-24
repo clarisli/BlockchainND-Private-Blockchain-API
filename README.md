@@ -51,7 +51,7 @@ The new block's data goes into the request body:
 
 ```
 {
-	"data": "Some sample data"
+	"body": "Some sample data"
 }
 ```
 
@@ -67,11 +67,16 @@ The new block's data goes into the request body:
 }
 ```
 
-I also did a simple validation - if the request's payload is empty, the service will not create a block and return an error:
+I also did a simple validation - when receiving a request without a body property or with a property with a different name than body, the service will not create a block and return an error:
 
 ```
 {
-    "status": "Error",
-    "message": "Block content is required."
+    "errors": [
+        {
+            "location": "body",
+            "param": "body",
+            "msg": "Invalid value"
+        }
+    ]
 }
 ```
