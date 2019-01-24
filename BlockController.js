@@ -27,6 +27,7 @@ class BlockController {
             // Add your code here
             let blockHeight = req.params["index"];
             this.blockChain.getBlock(blockHeight).then((block) => {
+                res.setHeader('Content-Type', 'application/json');
                 res.send(JSON.stringify(block));
             }).catch((err) => {console.log(err);});
         });
@@ -37,6 +38,7 @@ class BlockController {
      */
     postNewBlock() {
         this.app.post("/api/block", (req, res) => {
+            res.setHeader('Content-Type', 'application/json');
             if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
                 res.send({
                     status: 'Error',
