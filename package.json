@@ -1,5 +1,5 @@
 {
-  "name": "Private Blockchain",
+  "name": "PrivateBlockchain",
   "version": "1.0.0",
   "description": "Simplified private blockchain RESTful API.",
   "main": "app.js",
@@ -7,6 +7,7 @@
     "body-parser": "^1.18.3",
     "crypto-js": "^3.1.9-1",
     "express": "^4.16.4",
+    "express-validator": "^5.3.1",
     "level": "^4.0.0"
   },
   "devDependencies": {},

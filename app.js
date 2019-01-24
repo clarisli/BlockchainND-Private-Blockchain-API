@@ -2,7 +2,7 @@
 const express = require("express");
 //Importing BodyParser.js module
 const bodyParser = require("body-parser");
-
+const expressValidator = require('express-validator')
 /**
  * Class Definition for the REST API
  */
@@ -32,6 +32,7 @@ class BlockAPI {
 	initExpressMiddleWare() {
 		this.app.use(bodyParser.urlencoded({extended:true}));
 		this.app.use(bodyParser.json());
+		this.app.use(expressValidator());
 	}
 
     /**
